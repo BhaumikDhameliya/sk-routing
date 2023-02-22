@@ -33,6 +33,7 @@ export async function DELETE(requestEvent) {
 	if (commentIndex === -1) {
 		return json({ message: 'Comment not found' }, { status: 404 });
 	}
+	const deletedComment = comments[commentIndex];
 	comments.splice(commentIndex, 1);
-	return json({ message: 'comment removed.' });
+	return json(deletedComment);
 }
